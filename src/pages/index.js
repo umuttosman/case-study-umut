@@ -6,11 +6,19 @@ import 'swiper/css/pagination';
 import { getProducts } from '../../lib/shopify';
 
 export async function getStaticProps() {
-  const products = await getProducts();
+  try {
+    const products = await getProducts();
 
-  return {
-    props: { products },
-  };
+    return {
+      props: { products },
+    };
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return {
+      props: { products: [] },
+      revalidate: 10,
+    };
+  }
 }
 
 export default function Home({products}) {

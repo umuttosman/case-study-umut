@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.cdnfonts.com/css/poetsen-one');
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -17,13 +18,7 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Poetsen One', sans-serif;
 }
 
 @layer utilities {
@@ -31,3 +26,32 @@ body {
     text-wrap: balance;
   }
 }
+.container {
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.product {
+  text-align: center;
+}
+
+/* styles/globals.css */
+.swiper-wrapper {
+  background-color: transparent !important; /* Swiper arka plan rengini şeffaf yapar */
+}
+.swiper-slide {
+  background-color: transparent !important; /* SwiperSlide arka plan rengini şeffaf yapar */
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000 !important; /* Swiper navigasyon oklarının rengini siyah yapar */
+}
+.swiper-pagination-bullet {
+  background-color: #000 !important; /* Swiper sayfalandırma noktalarının rengini siyah yapar */
+}
+
+

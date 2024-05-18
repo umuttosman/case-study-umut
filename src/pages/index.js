@@ -8,7 +8,7 @@ import { getProducts } from '../../lib/shopify';
 export async function getStaticProps() {
   try {
     const products = await getProducts();
-
+    console.log("Products fetched:", products); // Ürünleri logla
     return {
       props: { products },
     };
@@ -16,7 +16,7 @@ export async function getStaticProps() {
     console.error("Error fetching products:", error);
     return {
       props: { products: [] },
-      revalidate: 10,
+      revalidate: 10, 
     };
   }
 }

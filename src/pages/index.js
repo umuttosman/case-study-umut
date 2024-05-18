@@ -8,7 +8,6 @@ import { getProducts } from '../../lib/shopify';
 export async function getStaticProps() {
   try {
     const products = await getProducts();
-    console.log("Products fetched:", products); // Ürünleri logla
     return {
       props: { products },
     };

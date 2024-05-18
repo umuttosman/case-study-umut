@@ -38,20 +38,18 @@ body {
 .product {
   text-align: center;
 }
-
-/* styles/globals.css */
 .swiper-wrapper {
-  background-color: transparent !important; /* Swiper arka plan rengini şeffaf yapar */
+  background-color: transparent !important;
 }
 .swiper-slide {
-  background-color: transparent !important; /* SwiperSlide arka plan rengini şeffaf yapar */
+  background-color: transparent !important;
 }
 .swiper-button-next,
 .swiper-button-prev {
-  color: #000 !important; /* Swiper navigasyon oklarının rengini siyah yapar */
+  color: #000 !important; 
 }
 .swiper-pagination-bullet {
-  background-color: #000 !important; /* Swiper sayfalandırma noktalarının rengini siyah yapar */
+  background-color: #000 !important; 
 }
 
 

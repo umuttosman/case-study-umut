@@ -3,8 +3,17 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { getProducts } from '../../lib/shopify';
 
-export default function Home() {
+export async function getStaticProps() {
+  const products = await getProducts();
+
+  return {
+    props: { products },
+  };
+}
+
+export default function Home({products}) {
   return (
     <main className="flex flex-col min-h-screen items-center justify-between lg:flex-row">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 w-full">
@@ -73,16 +82,16 @@ export default function Home() {
               },
             }}
           >
-            {['image-1.png', 'image-2.png', 'image-1.png', 'image-1.png', 'image-1.png'].map((src, index) => (
-              <SwiperSlide key={index} className="rounded-xl">
-                <div className="product">
-                  <img className="w-full rounded-xl" src={`images/${src}`} />
-                  <div className="flex flex-col items-start mt-2 gap-1 text-start">
-                    <p className="text-sm lg:text-base">Organic Skinny High Waist Raw Hem Jeans</p>
-                    <p className="text-sm lg:text-base">€33.95</p>
-                  </div>
+            {products.map((product) => (
+            <SwiperSlide key={product.id} className="rounded-xl">
+              <div className="product">
+                <img className="w-full rounded-xl" src={product.imageSrc} alt={product.imageAlt} />
+                <div className="flex flex-col items-start mt-2 gap-1 text-start">
+                  <p className="text-sm lg:text-base">{product.title}</p>
+                  <p className="text-sm lg:text-base">{product.price}</p>
                 </div>
-              </SwiperSlide>
+              </div>
+            </SwiperSlide>
             ))}
           </Swiper>
         </div>
